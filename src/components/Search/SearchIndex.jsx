@@ -34,8 +34,9 @@ class SearchIndex extends Component {
             if (this.state.query.length % 2 === 0) {
             this.getInfo()
             }
-        } 
-        })
+        } else if (!this.state.query) {
+        }
+      })
     }
 
     handleSubmit = evt => {
@@ -61,11 +62,11 @@ class SearchIndex extends Component {
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
                 />
-                {/* <SearchSuggestions results={this.state.query} /> */}
+                {/* <SearchSuggestions results={this.state.results} /> */}
                 <button type= "submit" >Search</button>
 
                 </form>
-                <ListIndex results= {this.state.results}/>
+                <ListIndex results={this.state.results}/>
             </div>
         )
 

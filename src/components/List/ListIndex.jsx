@@ -3,14 +3,14 @@ import ListTab from './ListTab/ListTab'
 
 
 class ListIndex extends Component {
-
     state = {
         text: "",
         updateText: "",
-        top5: [],
+        top5: {},
         needsUpdate: false
-      }
-  
+    }
+    
+
     handleChange = evt => {
       this.setState({ [evt.target.name]: evt.target.value })
     }
@@ -30,18 +30,12 @@ class ListIndex extends Component {
       this.setState({ top5: newStateArray })
     }
 
-    handleRemove = index => {
-        const newStateArray = [...this.state.top5]
-        newStateArray.splice(index, 1)
-        this.setState({ top5: newStateArray })
-      }
-
-      handlePrepareUpdate = index => {
+    handlePrepareUpdate = index => {
         this.setState((state) => ({ 
           needsUpdate: true,
           updateText: state.top5[index].text 
         }))
-      }
+    }
     
       handleUpdate = evt => {
         evt.preventDefault()
@@ -54,10 +48,19 @@ class ListIndex extends Component {
       }
 
     render() {
+        console.log(this.props);
+
+
         return (
             <div className="ListIndex">
                 <h1>Welcome to your Top5</h1>
-                <ListTab top5={this.state.top5}/>
+                <ListTab 
+                top5={this.props.results} 
+                handleRemove={this.handleRemove}
+                handlePrepareUpdate={this.handlePrepareUpdate}
+                handleChange={this.handleChange} 
+                handleUpdate={this.handleUpdate} 
+                />
             </div>
         )
 
