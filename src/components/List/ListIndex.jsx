@@ -6,13 +6,17 @@ class ListIndex extends Component {
     state = {
         text: "",
         updateText: "",
-        top5: {},
+        top5: [],
         needsUpdate: false
     }
     
+    componentDidMount() {
+        const { top5 } = this.props.results;
+        this.setState({ top5 });
+      }
 
     handleChange = evt => {
-      this.setState({ [evt.target.name]: evt.target.value })
+      this.setState({ [evt.target.text]: evt.target.value })
     }
   
     handleSubmit = evt => {
@@ -54,7 +58,9 @@ class ListIndex extends Component {
         return (
             <div className="ListIndex">
                 <h1>Welcome to your Top5</h1>
-                <ListTab 
+                <ListTab
+                updateText={this.state.updateText}
+                text={this.state.text} 
                 top5={this.props.results} 
                 handleRemove={this.handleRemove}
                 handlePrepareUpdate={this.handlePrepareUpdate}

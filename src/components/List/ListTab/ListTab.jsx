@@ -54,11 +54,13 @@ function ListTab(props) {
   const { classes } = props;
   console.log(props)
   return (
+    
     <div className={classes.root}>
     {
-    props.top5.map((pick, idx) => (
+      props.top5.map((pick, idx) => (
+    <form onSubmit= {() => props.handleRemove(idx)}>
       <ExpansionPanel defaultExpanded key={idx}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.column}>
             <Typography className={classes.heading}>Title/Img</Typography>
           </div>
@@ -76,19 +78,20 @@ function ListTab(props) {
             <Typography variant="caption">
               Anime Reveiw Avalible
               <br />
-              <textarea name={props.name} value={props.text} onChange={props.handleChange} />
+              <textarea type="text" value={props.text} onChange={props.handleChange} />
             </Typography>
           </div>
         </ExpansionPanelDetails>
         <Divider />
         <ExpansionPanelActions>
-          <Button size="small" onClick={handler}>Submit/Update Reveiw</Button>
-          <Button size="small" onClick={() => props.handleRemove(idx)}>Remove from Top5</Button>
+          <Button size="small" type="submit" onClick={handler}>Submit/Update Reveiw</Button>
+          <button size="small" type="submit">Remove from Top5</button>
           <Button size="small" color="primary">Save</Button>
         </ExpansionPanelActions>
       </ExpansionPanel>
+    </form>
     ))
-    }
+  }
     </div>
   );
 }

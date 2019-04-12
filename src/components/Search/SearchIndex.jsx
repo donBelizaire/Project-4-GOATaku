@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ListIndex from '../List/ListIndex'
-// import SearchSuggestions from './SearchSuggestions/SearchSuggestions';
+import SearchSuggestions from './SearchSuggestions/SearchSuggestions';
 // import SearchBar from '../Search/SearchBar/SearchBar'
 // import  GetAllShows from './services/GetAllShows/GetAllShows';
 
@@ -56,17 +56,21 @@ class SearchIndex extends Component {
     render() {
         return (
             <div className="SearchIndex">
-                <form onSubmit={this.handleSubmit}>
+                
+                <SearchSuggestions results={this.state.results} />
+                <button type= "submit" >Search</button>
+                <form 
+                onSubmit={this.handleSubmit}>
                 <input
                 placeholder="Search for..."
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
                 />
-                {/* <SearchSuggestions results={this.state.results} /> */}
-                <button type= "submit" >Search</button>
-
                 </form>
-                <ListIndex results={this.state.results}/>
+                <ListIndex 
+                results={this.state.results}
+                getInfo={this.getInfo}/>
+                
             </div>
         )
 

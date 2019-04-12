@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchIndex from './components/Search/SearchIndex'
+import NavIndex from './components/Nav/NavIndex'
 // import  AnimePage  from './pages/AnimePage/AnimePage';
 import './App.css';
 
@@ -25,6 +26,7 @@ class App extends Component {
   //   return this.state.anime[idx];
   // }
 
+
   // async componentDidMount() {
   //   const getAllShows = await GetAllShows();
   //   this.setState({ shows: GetAllShows.results });
@@ -33,8 +35,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
       <h1>Hello GOATaku App</h1>
+      <NavIndex/>
       <SearchIndex/>
       </div>
     )

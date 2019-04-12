@@ -1,6 +1,6 @@
-const BASE_URL = 'https://hummingbirdv1.p.rapidapi.com/';
+// const BASE_URL = 'https://hummingbirdv1.p.rapidapi.com/';
 
-export default function GetAllShows() {
-  return fetch(`${BASE_URL}anime`, {mode: "cors"})
-    .then(res => res.json());
-}
+// export default function GetAllShows() {
+//   return fetch(`${BASE_URL}anime`, {mode: "cors"})
+//     .then(res => res.json());
+// }
