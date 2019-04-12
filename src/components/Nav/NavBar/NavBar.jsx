@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import LoginPage from '../../../pages/LoginPage/LoginPage';
+import SignupPage from '../../../pages/SignupPage/SignupPage'
 
 
 const NavBar = (props) => (
@@ -16,6 +17,7 @@ const NavBar = (props) => (
         <Route exact path="/login" component={LoginPage} />
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+        <Route exact path="/signup" component={SignupPage} />
       </div>;
 
     </Router>

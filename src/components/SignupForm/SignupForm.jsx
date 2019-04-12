@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userServices';
 
 class SignupForm extends Component {
 
   state = {
+    open: false,
     name: '',
     email: '',
     password: '',
     passwordConf: ''
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
   };
 
   handleChange = (e) => {
@@ -39,36 +55,84 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
+        <div>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
-            </div>
-          </div>
-        </form>
+        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+          Signup
+        </Button>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="form-dialog-title"
+          >
+          <DialogTitle id="form-dialog-title">Signup</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              To register with GOATaku please fill out the form below.
+            </DialogContentText>
+            <TextField
+            type="text" 
+            className="form-control" 
+            placeholder="Name" 
+            value={this.state.name} 
+            name="name" 
+            onChange={this.handleChange}
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Name"
+            fullWidth
+              />
+            <TextField
+            type="email" 
+            className="form-control" 
+            placeholder="Email" 
+            value={this.state.email} 
+            name="email" 
+            onChange={this.handleChange}
+            autoFocus
+            margin="dense"
+            id="email"
+            label="Email"
+            fullWidth
+              />
+            <TextField
+            type="password" 
+            className="form-control" 
+            placeholder="password" 
+            value={this.state.password} 
+            name="password" 
+            onChange={this.handleChange}
+            autoFocus
+            margin="dense"
+            id="password"
+            label="password"
+            fullWidth
+              />
+            <TextField
+            type="password" 
+            className="form-control" 
+            placeholder="Password" 
+            value={this.state.passwordConf} 
+            name="password" 
+            onChange={this.handleChange}
+            autoFocus
+            margin="dense"
+            id="password"
+            label="Password"
+            fullWidth
+              />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button type="submit" onClick={this.isFormInvalid()} color="primary">
+              Submit
+            </Button>
+          </DialogActions>
+        </Dialog>
+              </form>
       </div>
     );
   }
