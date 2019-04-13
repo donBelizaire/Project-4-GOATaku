@@ -5,8 +5,8 @@ import SearchSuggestions from './SearchSuggestions/SearchSuggestions';
 // import SearchBar from '../Search/SearchBar/SearchBar'
 // import  GetAllShows from './services/GetAllShows/GetAllShows';
 
-const { API_KEY } = process.env
-const API_URL = 'http://api.musicgraph.com/api/v2/artist/suggest'
+const { API_KEYHEADER } = process.env
+const HOST_URL = process.env
 
 class SearchIndex extends Component {
   state = {
@@ -17,11 +17,12 @@ class SearchIndex extends Component {
     // SearchBar Code
 
     getInfo = () => {
-        axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
+        console.log('getInfo'   )
+        axios.get(`${HOST_URL}?api_key=${API_KEYHEADER}&prefix=${this.state.query}&limit=7`)
         .then(({ data }) => {
             this.setState({
-            results: data.data // MusicGraph returns an object named data, 
-                                // as does axios. So... data.data                             
+                results: data.data // MusicGraph returns an object named data, 
+                // as does axios. So... data.data                             
             })
         })
     }

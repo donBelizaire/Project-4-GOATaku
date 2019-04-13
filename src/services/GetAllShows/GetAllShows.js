@@ -1,6 +1,8 @@
-// const BASE_URL = 'https://hummingbirdv1.p.rapidapi.com/';
+import React from 'react'
 
-// export default function GetAllShows() {
-//   return fetch(`${BASE_URL}anime`, {mode: "cors"})
-//     .then(res => res.json());
-// }
+const BASE_URL = 'https://hummingbirdv1.p.rapidapi.com/';
+
+export default function GetAllShows() {
+  return fetch(`${BASE_URL}anime`, {mode: "cors"})
+    .then(res => res.json());
+}

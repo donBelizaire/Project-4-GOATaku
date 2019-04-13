@@ -48,11 +48,11 @@ const styles = theme => ({
 
 function ListTab(props) {
 
-  const handler = props.handleSubmit ? 
-  props.handleSubmit : props.handleUpdate
+  // const handler = props.handleSubmit ? 
+  // props.handleSubmit : props.handleUpdate
 
   const { classes } = props;
-  console.log(props)
+  console.log(props)  
   return (
     
     <div className={classes.root}>
@@ -78,13 +78,13 @@ function ListTab(props) {
             <Typography variant="caption">
               Anime Reveiw Avalible
               <br />
-              <textarea type="text" value={props.text} onChange={props.handleChange} />
+              <textarea type="text" name='text' value={props.text} onChange={props.handleChange} />
             </Typography>
           </div>
         </ExpansionPanelDetails>
         <Divider />
         <ExpansionPanelActions>
-          <Button size="small" type="submit" onClick={handler}>Submit/Update Reveiw</Button>
+          <Button size="small" type="submit" onClick={props.handleSubmit}>Submit/Update Reveiw</Button>
           <button size="small" type="submit">Remove from Top5</button>
           <Button size="small" color="primary">Save</Button>
         </ExpansionPanelActions>

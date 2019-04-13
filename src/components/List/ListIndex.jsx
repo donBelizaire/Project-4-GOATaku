@@ -16,15 +16,23 @@ class ListIndex extends Component {
       }
 
     handleChange = evt => {
-      this.setState({ [evt.target.text]: evt.target.value })
+      console.log(evt.currentTarget.name)
+      console.log(evt.currentTarget.value)
+      this.setState({
+         [evt.currentTarget.name]: evt.currentTarget.value 
+        })
     }
   
     handleSubmit = evt => {
       evt.preventDefault()
       const newStateArray = [...this.state.top5, {text: this.state.text}]
+      const newState = this.state.top5.push(this.state.text)
+      console.log('state ', this.state.top5)
+      console.log(newState)
+      console.log(newStateArray)
       this.setState({
         text: "",
-        top5: newStateArray
+        top5: ['lskdjfa;slkfja']
       })
     }
   
@@ -66,6 +74,7 @@ class ListIndex extends Component {
                 handlePrepareUpdate={this.handlePrepareUpdate}
                 handleChange={this.handleChange} 
                 handleUpdate={this.handleUpdate} 
+                handleSubmit={this.handleSubmit}
                 />
             </div>
         )
