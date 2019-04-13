@@ -52,7 +52,7 @@ function ListTab(props) {
   // props.handleSubmit : props.handleUpdate
 
   const { classes } = props;
-  console.log(props)  
+  console.log(props.query)  
   return (
     
     <div className={classes.root}>
