@@ -20,6 +20,7 @@ class ListIndex extends Component {
     handleChange = evt => {
       console.log(evt.currentTarget.name)
       console.log(evt.currentTarget.value)
+      console.log(this.state.text)
       this.setState({
          [evt.currentTarget.name]: evt.currentTarget.value 
         })
@@ -44,11 +45,15 @@ class ListIndex extends Component {
       this.setState({ top5: newStateArray })
     }
 
-    handlePrepareUpdate = index => {
+    handlePrepareUpdate = evt => {
+        evt.preventDefault()
         this.setState((state) => ({ 
           needsUpdate: true,
-          updateText: state.top5[index].text 
+          updateText: state.top5.text, 
+          text: ""
         }))
+        console.log(this.state.updateText)
+        console.log(this.state.text)
     }
     
       handleUpdate = evt => {

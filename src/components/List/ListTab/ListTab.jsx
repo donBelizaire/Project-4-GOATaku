@@ -52,7 +52,7 @@ function ListTab(props) {
   // props.handleSubmit : props.handleUpdate
 
   const { classes } = props;
-  console.log(props.top5)  
+  console.log(props.value)  
   return (
     
     <div className={classes.root}>
@@ -76,7 +76,7 @@ function ListTab(props) {
           <div className={classes.column} >{pick.synopsis}</div>
           <div className={classNames(classes.column, classes.helper)}>
             <Typography variant="caption">3
-            {props.text} 
+            {props.value} 
               <br />
               <textarea type="text" name='text' value={props.text} onChange={props.handleChange} />
             </Typography>
@@ -84,7 +84,7 @@ function ListTab(props) {
         </ExpansionPanelDetails>
         <Divider />
         <ExpansionPanelActions>
-          <Button size="small" type="submit" onClick={props.handleUpdate}>Submit/Update Reveiw</Button>
+          <Button size="small" type="submit" onClick={props.handlePrepareUpdate}>Submit/Update Reveiw</Button>
           <button size="small" type="submit" onClick={props.handleRemove}>Remove from Top5</button>
           <Button size="small" color="primary" onClick={props.handleSubmit}>Save</Button>
         </ExpansionPanelActions>
