@@ -65,7 +65,7 @@ function ListTab(props) {
             <Typography className={classes.heading} value="Title/Img">{pick.name}</Typography>
           </div>
           <div className={classes.column}>
-            <Typography className={classes.secondaryHeading} value="Anime Summary" ></Typography>
+            <Typography className={classes.secondaryHeading} value="Anime Summary" >Anime Summary</Typography>
           </div>
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}>Anime Reveiw Avalible</Typography>
