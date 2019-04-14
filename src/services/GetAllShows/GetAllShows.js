@@ -12,7 +12,8 @@ async function GetAllShows(query) {
       return {
         name: anime.attributes.slug,
         synopsis: anime.attributes.synopsis,
-        image: anime.attributes.posterImage.small
+        image: anime.attributes.posterImage.small,
+        id: anime.id
       }
     })
     console.log(revisedResults);

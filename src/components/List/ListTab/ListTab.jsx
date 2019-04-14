@@ -52,31 +52,31 @@ function ListTab(props) {
   // props.handleSubmit : props.handleUpdate
 
   const { classes } = props;
-  console.log(props.query)  
+  console.log(props.top5)  
   return (
     
     <div className={classes.root}>
     {
-      props.top5.map((pick, idx) => (
-    <form onSubmit= {() => props.handleRemove(idx)}>
-      <ExpansionPanel defaultExpanded key={props.top5.idx}>
+      props.top5.map((pick) => (
+    <form onSubmit= {() => props.handleRemove(pick.id)}>
+      <ExpansionPanel defaultExpanded key={pick.id}>
        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.column}>
-            <Typography className={classes.heading} value={pick.name}>Title/Img</Typography>
+            <Typography className={classes.heading} value="Title/Img">{pick.name}</Typography>
           </div>
           <div className={classes.column}>
-            <Typography className={classes.secondaryHeading}>Anime Summary</Typography>
+            <Typography className={classes.secondaryHeading} value="Anime Summary" ></Typography>
           </div>
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}>Anime Reveiw Avalible</Typography>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.column} />
+          <div className={classes.column} ><img src={pick.image} alt="img"/></div>
+          <div className={classes.column} >{pick.synopsis}</div>
           <div className={classNames(classes.column, classes.helper)}>
-            <Typography variant="caption">
-              Anime Reveiw Avalible
+            <Typography variant="caption">3
+            {props.text} 
               <br />
               <textarea type="text" name='text' value={props.text} onChange={props.handleChange} />
             </Typography>
@@ -84,9 +84,9 @@ function ListTab(props) {
         </ExpansionPanelDetails>
         <Divider />
         <ExpansionPanelActions>
-          <Button size="small" type="submit" onClick={props.handleSubmit}>Submit/Update Reveiw</Button>
-          <button size="small" type="submit">Remove from Top5</button>
-          <Button size="small" color="primary">Save</Button>
+          <Button size="small" type="submit" onClick={props.handleUpdate}>Submit/Update Reveiw</Button>
+          <button size="small" type="submit" onClick={props.handleRemove}>Remove from Top5</button>
+          <Button size="small" color="primary" onClick={props.handleSubmit}>Save</Button>
         </ExpansionPanelActions>
       </ExpansionPanel>
     </form>

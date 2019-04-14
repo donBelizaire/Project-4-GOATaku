@@ -11,8 +11,10 @@ class ListIndex extends Component {
     }
     
     componentDidMount() {
-        const { top5 } = this.props.results;
-        this.setState({ top5 });
+        // const { top5 } = this.props.results;
+        // this.setState({ top5 });
+        this.setState({top5: this.props.results});
+
       }
 
     handleChange = evt => {
@@ -32,12 +34,12 @@ class ListIndex extends Component {
       console.log(newStateArray)
       this.setState({
         text: "",
-        top5: ['lskdjfa;slkfja']
+        top5: []
       })
     }
   
     handleRemove = index => {
-      const newStateArray = [...this.state.top5]
+      const newStateArray = [...this.props.results]
       newStateArray.splice(index, 1)
       this.setState({ top5: newStateArray })
     }
@@ -61,6 +63,7 @@ class ListIndex extends Component {
 
     render() {
         console.log(this.props.results);
+        console.log(this.state.top5);
 
 
         return (
