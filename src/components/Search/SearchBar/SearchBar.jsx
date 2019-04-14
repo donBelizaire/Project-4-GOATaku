@@ -46,7 +46,8 @@ return (
         className={classes.input} 
         placeholder="Search for..." 
         // ref={<SearchSuggestions/>}
-        onChange={props.handleInputChange}/>
+        onChange={props.handleInputChange}
+        value={props.query}/>
         <IconButton 
         type="submit" 
         className={classes.iconButton} 

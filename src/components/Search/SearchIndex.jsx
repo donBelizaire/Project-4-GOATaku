@@ -18,44 +18,37 @@ class SearchIndex extends Component {
     
     // SearchBar Code
 
-    getInfo = () => {
-        console.log(GetAllShows)
-        axios.get(`${HOST_URL}?api_key=${API_KEYHEADER}&prefix=${this.state.query}&limit=7`)
-        .then(({ data }) => {
-            this.setState({
-                results: data.data // MusicGraph returns an object named data, 
-                // as does axios. So... data.data                             
-            })
-            console.log(data)
-        })
-    }
+  getInfo = () => {
+      console.log(GetAllShows)
+      axios.get(`${HOST_URL}?api_key=${API_KEYHEADER}&prefix=${this.state.query}&limit=7`)
+      .then(({ data }) => {
+          this.setState({
+              results: data.data // MusicGraph returns an object named data, 
+              // as does axios. So... data.data                             
+          })
+          console.log(data)
+      })
+  }
 
-    handleInputChange = () => {
-        this.setState({
-        query: this.value
-        }, () => {
-        if (this.state.query && this.state.query.length > 1) {
-            if (this.state.query.length % 2 === 0) {
-            this.getInfo()
-            }
-        } else if (!this.state.query) {
-        }
+  handleInputChange = evt => {
+    this.setState({
+      [evt.target.name]: evt.target.value
+    });
+  }
+
+  handleSubmit = async (evt) => {
+      evt.preventDefault()
+      const results = await GetAllShows(this.state.query)
+      this.setState({
+        query: '',
+        results: results
       })
     }
 
-    handleSubmit = evt => {
-        evt.preventDefault()
-        const newStateArray = [...this.state.results, {query: this.state.query}]
-        this.setState({
-          query: '',
-          results: newStateArray
-        })
-      }
-
-      async componentDidMount() {
-    const getAllShows = await GetAllShows();
-    this.setState({ shows: GetAllShows.results });
-  }
+  // async componentDidMount() {
+  //   const getAllShows = await GetAllShows();
+  //   this.setState({ shows: GetAllShows.results });
+  // }
 // SearchBar: Not functional
     render() {
         return (
@@ -64,8 +57,9 @@ class SearchIndex extends Component {
                 
                 <SearchBar 
                 handleInputChange={this.handleInputChange}
-                handleSubmit={this.handleSubmit}/>
-
+                handleSubmit={this.handleSubmit}
+                query={this.state.query}
+                />
                 <ListIndex 
                 results={this.state.results}
                 getInfo={this.getInfo}/>

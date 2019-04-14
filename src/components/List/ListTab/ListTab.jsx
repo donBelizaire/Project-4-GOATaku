@@ -59,10 +59,10 @@ function ListTab(props) {
     {
       props.top5.map((pick, idx) => (
     <form onSubmit= {() => props.handleRemove(idx)}>
-      <ExpansionPanel defaultExpanded key={idx}>
+      <ExpansionPanel defaultExpanded key={props.top5.idx}>
        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.column}>
-            <Typography className={classes.heading}>Title/Img</Typography>
+            <Typography className={classes.heading} value={pick.name}>Title/Img</Typography>
           </div>
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}>Anime Summary</Typography>
