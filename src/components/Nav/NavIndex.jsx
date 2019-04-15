@@ -26,6 +26,7 @@ class NavIndex extends Component {
             <div className="">
 
             <NavBar
+                handleSignupOrLogin= {this.handleSignupOrLogin}
                 user={this.user}
                 handleLogout={this.handleLogout} />
 

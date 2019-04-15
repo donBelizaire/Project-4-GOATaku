@@ -15,6 +15,7 @@ const styles = {
       display: 'flex',
       alignItems: 'center',
       width: 400,
+      
     },
     input: {
       marginLeft: 8,

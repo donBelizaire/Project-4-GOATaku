@@ -120,7 +120,6 @@ class SignupForm extends Component {
             autoFocus
             margin="dense"
             id="password"
-          
             fullWidth
               />
           </DialogContent>

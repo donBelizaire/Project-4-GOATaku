@@ -18,22 +18,14 @@ class LoginPage extends Component {
     open: false,
   };
     
-    
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
+  
   handleChange = (e) => {
     this.setState({
       // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
     });
   }
-
+  
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -47,6 +39,15 @@ class LoginPage extends Component {
       alert('Invalid Credentials!');
     }
   }
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+
 
   render() {
     return (
