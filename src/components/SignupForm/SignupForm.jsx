@@ -50,6 +50,7 @@ class SignupForm extends Component {
   }
 
   isFormInvalid() {
+    console.log('submit form')
     return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
   }
 
@@ -106,7 +107,7 @@ class SignupForm extends Component {
             autoFocus
             margin="dense"
             id="password"
-            label="password"
+            
             fullWidth
               />
             <TextField
@@ -119,7 +120,7 @@ class SignupForm extends Component {
             autoFocus
             margin="dense"
             id="password"
-            label="Password"
+          
             fullWidth
               />
           </DialogContent>

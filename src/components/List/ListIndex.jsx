@@ -73,7 +73,7 @@ class ListIndex extends Component {
 
         return (
             <div className="ListIndex">
-                <h1>Welcome to your Top5</h1>
+                <h1>Welcome to GOATaku</h1>
                 <ListTab
                 updateText={this.state.updateText}
                 text={this.state.text} 
