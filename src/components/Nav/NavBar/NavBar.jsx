@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-// import './NavBar.css';
+// import '../NavBar/NavBar.css';
 
 const NavBar = (props) => {
   let nav = props.user ?
-  // <Router>
-
-    <div>
-      <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
+  <div >
+      <button onClick={props.handleLogout} className='NavBar-link' >LOG OUT</button>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
     </div>
@@ -18,11 +16,12 @@ const NavBar = (props) => {
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
     </div>;
-  // </Router>
 
-  return (
+// console.log(props.user.name)
+return (
     <div className='NavBar'>
       {nav}
+      <img className="logo" src="https://imgur.com/UImBo2k.png" alt="GOATaku"/>
     </div>
   );
 };

@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GOATaku
 
-## Available Scripts
+Welcome to GOATaku. Your personl anime database
+![Home Page](https://imgur.com/8VuHoOw.png "GOATaku Home Page")
 
-In the project directory, you can run:
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As a user, I want the ability of a user to sign-up, log in & log out.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+As a user, I would like to be able to create a list of Anime that can be recommended to other users.
 
-### `npm test`
+As a user I would like to be able to write reviews of shows that I like. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a user, I would like to be able to view information about all shows recommended.
 
-### `npm run build`
+## Wireframe and ERD
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here is a [link](https://wireframe.cc/Rf6wKQ) to the wireframe.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Here is a [link](https://www.lucidchart.com/documents/edit/034178be-318e-4024-97c9-c31e615aa4f5/0) to the ERD.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Technology Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. React, JavaScript, ExpressJS, NodeJS
+2. MongoDB Atlas
+3. Token based Auth
+4. Kitsu API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Challenges/Lessons
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
++ established functional routes and controllers 
+    1. User Login/Logout functional
+    2. user is able to Read and view information from API.
+    3. User is able to search for available data on whatever anime that they want.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Unsolved Problems
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
++ User is able to Create documents.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
++ User is able to Update existing documents.
 
-### Code Splitting
++ User is able to Delete existing documents.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
++ Heroku deployment not active.
 
-### Analyzing the Bundle Size
+## Ice Box
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Below are features that will be implemented in the future:
 
-### Making a Progressive Web App
++ AAU- I would like to be able to chat with other users who have the same interests as me.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
++ AAU- I would like to be able to view information about all shows recommended.
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
++ AAU- I would like to be able to see and comment on reviews left by other users.

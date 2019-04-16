@@ -21,6 +21,7 @@ class App extends Component {
   };
 
   handleLogout = () => {
+    console.log('Logout')
     userService.logout();
     this.setState({ user: null });
 }
@@ -56,7 +57,9 @@ async componentDidMount(){
     return (
       <div className="App">
       <Router>
-      <NavBar />
+      <NavBar 
+      user={this.user}
+      handleLogout= {this.handleLogout}/>
 
       <Route exact path='/signup' render={({ history }) => 
             <SignupPage
